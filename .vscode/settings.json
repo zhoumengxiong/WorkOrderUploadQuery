@@ -3,5 +3,7 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "editor.fontFamily": "Source Code Pro, 'Courier New', monospace",
     "editor.minimap.enabled": false,
-    "python.pythonPath": "D:\\Anaconda3\\python.exe"
+    "python.pythonPath": "D:\\Anaconda3\\python.exe",
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
 }
