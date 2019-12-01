@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 开发者：周梦雄
-最后更新日期：2019/11/5
+最后更新日期：2019/11/25
 """
 import pymysql
 from PyQt5.QtCore import QDate
