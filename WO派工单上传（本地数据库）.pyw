@@ -25,8 +25,8 @@ class MyMainWindow(QMainWindow, Ui_wo_upload):
         self.bt_update.clicked.connect(self.update_db)
         self.comboBox_2.setCurrentIndex(7)
         self.show()
-        QMessageBox.warning(
-            self, "千万小心！", "更新数据库时，一定要核对派工单号、产品形态、芯片方案是否填写正确，否则会造成严重后果！", QMessageBox.Ok)
+        # QMessageBox.warning(
+        #    self, "千万小心！", "更新数据库时，一定要核对派工单号、产品形态、芯片方案是否填写正确，否则会造成严重后果！", QMessageBox.Ok)
 
     def add_to_db(self):
         try:
