@@ -217,7 +217,7 @@ class Ui_wo_upload(object):
         self.lb_prod.setText(_translate("wo_upload", "产品形态："))
         self.lb_prod_qty.setText(_translate("wo_upload", "生产数量："))
         self.lb_date_toWH.setText(_translate("wo_upload", "入库日期："))
-        self.le_wo.setText(_translate("wo_upload", "X201911"))
+        self.le_wo.setText(_translate("wo_upload", "X201912"))
         self.le_approval_no.setPlaceholderText(_translate("wo_upload", "填写审批编号后6位"))
         self.comboBox.setItemText(0, _translate("wo_upload", "单相表"))
         self.comboBox.setItemText(1, _translate("wo_upload", "13版三相表"))
