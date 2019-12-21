@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\Python_project\PyQt5\wo_upload.ui'
+# Form implementation generated from reading ui file 'd:\MyProjects\GUI_project\wo_upload.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
@@ -179,6 +179,8 @@ class Ui_wo_upload(object):
         self.comboBox_chip.setObjectName("comboBox_chip")
         self.comboBox_chip.addItem("")
         self.comboBox_chip.addItem("")
+        self.comboBox_chip.addItem("")
+        self.comboBox_chip.addItem("")
         self.verticalLayout_4.addWidget(self.comboBox_chip)
         spacerItem23 = QtWidgets.QSpacerItem(17, 37, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_4.addItem(spacerItem23)
@@ -197,7 +199,7 @@ class Ui_wo_upload(object):
         self.gridLayout.addLayout(self.horizontalLayout_4, 1, 0, 1, 1)
         wo_upload.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(wo_upload)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 18))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 26))
         self.menubar.setObjectName("menubar")
         wo_upload.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(wo_upload)
@@ -217,7 +219,7 @@ class Ui_wo_upload(object):
         self.lb_prod.setText(_translate("wo_upload", "产品形态："))
         self.lb_prod_qty.setText(_translate("wo_upload", "生产数量："))
         self.lb_date_toWH.setText(_translate("wo_upload", "入库日期："))
-        self.le_wo.setText(_translate("wo_upload", "X201912"))
+        self.le_wo.setText(_translate("wo_upload", "X201911"))
         self.le_approval_no.setPlaceholderText(_translate("wo_upload", "填写审批编号后6位"))
         self.comboBox.setItemText(0, _translate("wo_upload", "单相表"))
         self.comboBox.setItemText(1, _translate("wo_upload", "13版三相表"))
@@ -250,5 +252,7 @@ class Ui_wo_upload(object):
         self.comboBox_2.setItemText(8, _translate("wo_upload", "返工"))
         self.comboBox_chip.setItemText(0, _translate("wo_upload", "3105"))
         self.comboBox_chip.setItemText(1, _translate("wo_upload", "3911"))
+        self.comboBox_chip.setItemText(2, _translate("wo_upload", "STKS_CCV1.30"))
+        self.comboBox_chip.setItemText(3, _translate("wo_upload", "STKS_CCV1.31"))
         self.le_remarks.setPlaceholderText(_translate("wo_upload", "根据实际情况选填"))
 import apprcc_rc
