@@ -38,7 +38,7 @@ class MyMainWindow(QMainWindow, Ui_STA_database_query):
         )
         self.textBrowser.setStyleSheet("* { color: #0000FF;}")
         self.statusbar.setStyleSheet(
-            "* { color: #FF6666;fontfont-size:30px;font-weight:bold;}"
+            "* { color: #FF6666;font-size:30px;font-weight:bold;}"
         )
         # 数据库路径
         db_file = r'C:\Users\zhoum\Desktop\MyProtocol.db'
