@@ -30,9 +30,9 @@ class MyMainWindow(QMainWindow, Ui_wo_query):
                                   "Dream123$", "raw_data", charset='utf8', autocommit=True)
         # 获取游标、数据
         self.cur = self.db.cursor()
-        self.sqlstring = r"select * from wos where "
-        self.sqlstring1 = r"select count(DISTINCT `派工单号`) from wos where "
-        self.sqlstring2 = r"select sum(`入库数量`) from wos where "
+        self.sqlstring = r"select WoNumber,ApprovalNumber,ProductClass,InQuantity,InDate,InOperator,ReceiveOperator,CurrentNode,ChipSolution,Supplement from wos_flask where "
+        self.sqlstring1 = r"select count(DISTINCT `WoNumber`) from wos_flask where "
+        self.sqlstring2 = r"select sum(`InQuantity`) from wos_flask where "
         self.exit.clicked.connect(self.buttonExit)
         self.query.clicked.connect(self.click_query)
         self.start_date.dateChanged.connect(self.on_date_changed)
@@ -54,30 +54,30 @@ class MyMainWindow(QMainWindow, Ui_wo_query):
             if self.cb_start_date.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`入库日期` >= '" + self.start_date_str + "'"
+                    temp_sqlstring += "`InDate` >= '" + self.start_date_str + "'"
                 else:
-                    temp_sqlstring += " and `入库日期` >= '" + self.start_date_str + "'"
+                    temp_sqlstring += " and `InDate` >= '" + self.start_date_str + "'"
 
             if self.cb_end_date.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`入库日期` <= '" + self.end_date_str + "'"
+                    temp_sqlstring += "`InDate` <= '" + self.end_date_str + "'"
                 else:
-                    temp_sqlstring += " and `入库日期` <= '" + self.end_date_str + "'"
+                    temp_sqlstring += " and `InDate` <= '" + self.end_date_str + "'"
 
             if self.cb_wo.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`派工单号` = '" + self.le_wo.text().upper() + "'"
+                    temp_sqlstring += "`WoNumber` = '" + self.le_wo.text().upper() + "'"
                 else:
-                    temp_sqlstring += " and `派工单号` = '" + self.le_wo.text().upper() + "'"
+                    temp_sqlstring += " and `WoNumber` = '" + self.le_wo.text().upper() + "'"
 
             if self.cb_approval.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`审批编号` = '" + self.le_approval.text() + "'"
+                    temp_sqlstring += "`ApprovalNumber` = '" + self.le_approval.text() + "'"
                 else:
-                    temp_sqlstring += " and `审批编号` = '" + self.le_approval.text() + "'"
+                    temp_sqlstring += " and `ApprovalNumber` = '" + self.le_approval.text() + "'"
 
             # 执行查询（传递开始测试日期时间参数）
             self.cur.execute(temp_sqlstring)
@@ -96,30 +96,30 @@ class MyMainWindow(QMainWindow, Ui_wo_query):
             if self.cb_start_date.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`入库日期` >= '" + self.start_date_str + "'"
+                    temp_sqlstring += "`InDate` >= '" + self.start_date_str + "'"
                 else:
-                    temp_sqlstring += " and `入库日期` >= '" + self.start_date_str + "'"
+                    temp_sqlstring += " and `InDate` >= '" + self.start_date_str + "'"
 
             if self.cb_end_date.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`入库日期` <= '" + self.end_date_str + "'"
+                    temp_sqlstring += "`InDate` <= '" + self.end_date_str + "'"
                 else:
-                    temp_sqlstring += " and `入库日期` <= '" + self.end_date_str + "'"
+                    temp_sqlstring += " and `InDate` <= '" + self.end_date_str + "'"
 
             if self.cb_wo.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`派工单号` = '" + self.le_wo.text().upper() + "'"
+                    temp_sqlstring += "`WoNumber` = '" + self.le_wo.text().upper() + "'"
                 else:
-                    temp_sqlstring += " and `派工单号` = '" + self.le_wo.text().upper() + "'"
+                    temp_sqlstring += " and `WoNumber` = '" + self.le_wo.text().upper() + "'"
 
             if self.cb_approval.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`审批编号` = '" + self.le_approval.text() + "'"
+                    temp_sqlstring += "`ApprovalNumber` = '" + self.le_approval.text() + "'"
                 else:
-                    temp_sqlstring += " and `审批编号` = '" + self.le_approval.text() + "'"
+                    temp_sqlstring += " and `ApprovalNumber` = '" + self.le_approval.text() + "'"
 
             # 执行查询（传递开始测试日期时间参数）
             self.cur.execute(temp_sqlstring)
@@ -142,30 +142,30 @@ class MyMainWindow(QMainWindow, Ui_wo_query):
             if self.cb_start_date.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`入库日期` >= '" + self.start_date_str + "'"
+                    temp_sqlstring += "`InDate` >= '" + self.start_date_str + "'"
                 else:
-                    temp_sqlstring += " and `入库日期` >= '" + self.start_date_str + "'"
+                    temp_sqlstring += " and `InDate` >= '" + self.start_date_str + "'"
 
             if self.cb_end_date.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`入库日期` <= '" + self.end_date_str + "'"
+                    temp_sqlstring += "`InDate` <= '" + self.end_date_str + "'"
                 else:
-                    temp_sqlstring += " and `入库日期` <= '" + self.end_date_str + "'"
+                    temp_sqlstring += " and `InDate` <= '" + self.end_date_str + "'"
 
             if self.cb_wo.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`派工单号` = '" + self.le_wo.text().upper() + "'"
+                    temp_sqlstring += "`WoNumber` = '" + self.le_wo.text().upper() + "'"
                 else:
-                    temp_sqlstring += " and `派工单号` = '" + self.le_wo.text().upper() + "'"
+                    temp_sqlstring += " and `WoNumber` = '" + self.le_wo.text().upper() + "'"
 
             if self.cb_approval.isChecked():
                 if is_first:
                     is_first = False
-                    temp_sqlstring += "`审批编号` = '" + self.le_approval.text() + "'"
+                    temp_sqlstring += "`ApprovalNumber` = '" + self.le_approval.text() + "'"
                 else:
-                    temp_sqlstring += " and `审批编号` = '" + self.le_approval.text() + "'"
+                    temp_sqlstring += " and `ApprovalNumber` = '" + self.le_approval.text() + "'"
 
             self.tableWidget_result.clearContents()  # 每一次查询时清除表格中信息
             # 执行查询（传递开始测试日期时间参数）
