@@ -32,14 +32,14 @@ class MyMainWindow(QMainWindow, Ui_wo_upload):
         try:
             value_lst = [self.le_wo.text().upper(), self.le_approval_no.text(), self.comboBox.currentText(), self.le_prod_qty.text(), self.dateEdit_date_toWH.date().toString("yyyy-MM-dd"), self.le_guy_send.text(),
                          self.le_guy_receive.text(), self.comboBox_2.currentText(), self.comboBox_chip.currentText(), self.le_remarks.text()]
-            self.cur.execute("select * from wos WHERE `派工单号` = %s and `产品形态`=%s and `芯片方案`=%s",
+            self.cur.execute("select * from wos_flask WHERE `WoNumber` = %s and `ProductClass`=%s and `ChipSolution`=%s",
                              [self.le_wo.text().upper(), self.comboBox.currentText(), self.comboBox_chip.currentText()])
             if self.cur.fetchall():
                 QMessageBox.warning(
                     self, "兄嘚!", "你已经上传过哦！", QMessageBox.Ok)
             else:
                 self.cur.execute(
-                    "INSERT INTO wos values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", value_lst)
+                    "INSERT INTO wos_flask(WoNumber,ApprovalNumber,ProductClass,InQuantity,InDate,InOperator,ReceiveOperator,CurrentNode,ChipSolution,Supplement) values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", value_lst)
                 self.db.commit()
                 self.statusbar.setStyleSheet(
                     "* { color: #00CD00;font-size:30px;font-weight:bold;}")
@@ -59,7 +59,7 @@ class MyMainWindow(QMainWindow, Ui_wo_upload):
             value_lst1 = [self.comboBox_2.currentText(), self.dateEdit_date_toWH.date().toString(
                 "yyyy-MM-dd"), self.le_remarks.text(), self.le_wo.text().upper(), self.comboBox.currentText(), self.comboBox_chip.currentText()]
             self.cur.execute(
-                r"update wos set 当前节点=%s,入库日期=%s,补充说明=%s where 派工单号=%s and 产品形态=%s and 芯片方案=%s", value_lst1)
+                r"update wos_flask set CurrentNode=%s,InDate=%s,Supplement=%s where WoNumber=%s and ProductClass=%s and ChipSolution=%s", value_lst1)
             self.db.commit()
             self.statusbar.setStyleSheet(
                 "* { color: #00CD00;font-size:30px;font-weight:bold;}"
